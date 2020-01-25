@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block extra_head %}<title>Happiness Archive</title>{% endblock %}
+
+{% block content %}
+
+    <div class="page-header">
+        <h2>Happiness Archive</h2>
+    </div>
+
+    {% url 'messaging:search' as url %}
+    <form method="get" class="form-inline" action="{{url}}">
+            <div class="form-group" style="font-size: 1.7em;">
+                <input type="search" name="q" id="id_q">
+                <input type="submit" value="Search" class="search">
+            </div>  
+    </form>
+
+    <p>
+        When you send a Happiness Packet, you can agree to display your message publicly on
+        this website. If both sender and recipient select this option, the message is published
+        on this page as a part of our Happiness Archive.
+    </p>
+
+    {% include 'messaging/_message_list.html' %}
+
+{% endblock content %}

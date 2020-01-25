@@ -1,0 +1,7 @@
+---
+- name: Ansible Workflow
+  hosts: localhost
+  #user: root
+  tasks:
+    - import_role:
+        name: new-workflow

@@ -1,0 +1,7 @@
+---
+- name: Ansible Jenkins install
+  hosts: localhost
+  #user: root
+  tasks:
+    - import_role:
+        name: jenkins-install

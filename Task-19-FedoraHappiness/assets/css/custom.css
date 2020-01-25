@@ -1,0 +1,421 @@
+:root{
+    --primary-color: #3c6eb4;
+    --secondary-color: #294172;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+*:before, *:after{
+    box-sizing: border-box;
+}
+
+html{
+    height: 100%;
+}
+
+body {
+    font-family: 'Open Sans';
+    line-height: 1.8em;
+    font-size: 9px;
+    height: 100%;
+    position: relative;
+    margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat';
+    margin-top: 1.4em;
+}
+
+main{
+    min-height: 100vh;
+    display: block;
+    overflow: hidden;
+    position: relative;
+    padding-bottom: 300px;
+    width: 100%;
+}
+
+a, a:hover {
+    color: var(--secondary-color);
+}
+
+aside {
+    background: var(--primary-color);
+    margin: -20px 0 0 0;
+}
+
+aside .sidebar {
+    padding: 30px 15px;
+    text-align: center;
+    color: white;
+}
+
+aside .sidebar a {
+    color: white;
+    font-family: Montserrat;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.total-packets {
+    cursor: default;
+}
+.total-packets:hover{
+  text-decoration: none;
+}
+
+aside .sidebar a:hover,
+aside .sidebar a:focus {
+    text-decoration: underline;
+    background: none;
+}
+
+aside .sidebar .logo {
+    max-height: 140px;
+    margin: 30px 0;
+}
+
+li.active[role="presentation"] a{
+    background: #fff;
+    color: var(--primary-color);
+    font-weight: bold;
+    border-radius: 2em;
+    margin-right: -100%;
+    padding-right: calc(100% + 10px);
+}
+
+footer {
+    text-align: center;
+    padding:0 7vw;
+    background-color: #3c6eb421;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+fieldset {
+    margin-top: 1em;
+}
+
+fieldset .form-group{
+    font-size: 1.7em;
+}
+
+fieldset legend {
+    font-family: 'Montserrat';
+    font-style: italic;
+    border-bottom: 0px;
+}
+
+blockquote {
+    border-left: 0px;
+    font-size: 2rem;
+    color: rgba(0, 0, 0, 0.7);
+    background: url(/static/images/loveletter.png) no-repeat;
+    background-size: 20%;
+    background-position: 0 20px;
+    padding-left: calc(20% + 20px);
+    min-height: 120px;
+    line-height: 1.8em;
+}
+
+.centered {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.btn {
+    background: white;
+    color: var(--secondary-color);
+    padding: 0.9em 1.3em;
+    margin: 2em;
+    border: 2px solid var(--secondary-color);
+    border-radius: 2em;
+    text-transform: uppercase;
+}
+
+.btn:hover {
+    background: var(--secondary-color);
+    color: white;
+    font-weight: bold;
+}
+
+.btn:focus {
+    color: white;
+}
+
+.btn-primary:hover{
+    font-weight: normal;
+    border-color: var(--secondary-color);
+}
+
+.btn-primary:hover img.emoji{
+    transition: 0.6s ease-in;
+    transform: scale(1.08) rotate(360deg);
+}
+
+.btn-login, .btn-logout {
+  background: none;
+  color: white;
+  border-color: #fff;
+  padding: 14px 20px 12px 20px;
+}
+
+.btn-login:hover, .btn-logout:hover{
+    background: #fff;
+    color: var(--primary-color);
+    border-color: #fff;
+}
+
+.dropdown-menu.show{
+    background: var(--primary-color);
+    width: 100%;
+    box-shadow: 0 5px 10px var(--primary-color);
+    border: 2px solid #fff;
+    border-top-color: var(--primary-color);
+    border-radius:  0 0 2em 2em;
+}
+
+.dropdown-menu.show a,
+.dropdown-menu.show a:hover{
+    padding: 5px 20px;
+    color: #fff;
+}
+
+.arrow-expanding{
+    width: 20px;
+    transition-duration: 0.3s;
+    margin-bottom: 2px;
+}
+
+.username{
+    cursor: pointer;
+}
+
+.username.dropdown-toggle[aria-expanded=false] .arrow-expanding{
+    transform: rotate(0);
+}
+
+.username.dropdown-toggle[aria-expanded=true] .arrow-expanding{
+    transform: rotate(-180deg);
+}
+
+.row.content {
+    min-height: 200px;
+}
+
+.lead {
+    line-height: 1.8em;
+}
+
+.asteriskField {
+    display: none;
+}
+
+#div_id_hp {
+    display: none;
+}
+
+#faq h3 {
+    margin-top: 2em;
+}
+
+@media (min-width: 992px) {
+    aside {
+        width: 25%;
+        height: calc(100% + 20px);
+        position: fixed;
+        display: flex;
+        justify-content: center;
+        background: -moz-linear-gradient(top,  var(--primary-color) 0%, var(--primary-color) 27%, var(--primary-color) 27%, var(--primary-color) 100%);
+        background: -webkit-linear-gradient(top,  var(--primary-color) 0%, var(--primary-color) 27%, var(--primary-color) 27%, var(--primary-color) 100%);
+        background: linear-gradient(to bottom,  var(--primary-color) 0%, var(--primary-color) 27%, var(--primary-color) 27%, var(--primary-color) 100%);
+    }
+
+    aside .sidebar {
+        max-width: 300px;
+        float: right;
+    }
+
+    aside .sidebar .logo {
+        max-width: 90%;
+        max-height: 300px;
+    }
+
+    main {
+        margin-left: 350px;
+        width: 75%;
+    }
+
+    main .container {
+        padding: 0px 50px;
+    }
+
+    blockquote {
+        min-height: 130px;
+    }
+
+    .row.content {
+        min-height: 500px;
+    }
+}
+
+@media (max-width: 975px){
+    li.active[role="presentation"] a{
+        background: #fff;
+        color: var(--primary-color);
+        font-weight: bold;
+        border-radius: 2em;
+        margin-right: 0;
+        padding-right: 15px;
+    }
+}
+
+@media (min-width: 1530px) {
+    blockquote {
+        min-height: 170px;
+    }
+
+    main{
+        margin-left: 450px;
+        width: 75%;
+    }
+}
+
+.emoji {
+    vertical-align: initial;
+}
+
+.sharebutton {
+    position: relative;
+    height: 28px;
+    box-sizing: border-box;
+    background-color: #3B5998;
+    padding: 1px 10px 1px 9px;
+    color: #fff;
+    font-weight: 500;
+    cursor: pointer;
+    inherit: none;
+    display: inline-block;
+    vertical-align: top;
+    font: normal normal normal 11px/18px 'Helvetica Neue',Arial,sans-serif;
+    font-size: 0.6em;
+    line-height: 26px;
+    border-radius: 4px;
+}
+
+.sharebutton:hover {
+    text-decoration: none;
+    color: #fff;
+    background-color: #2f4779;
+}
+
+.google{
+    background-color: #d34836;
+}
+
+.google:hover{
+    background-color: #b72213;
+}
+
+@media (max-width: 360px) {
+    .btn-responsive {
+        font-size: 12.5px;
+        margin: 2em 0;
+    }
+
+    main .container{
+        margin-bottom: 19em;
+    }
+}
+
+.twitter {
+    background-color: #00aced;
+}
+
+.twitter:hover {
+    background-color: #0084b4;
+}
+@media (max-width: 450px) {
+    aside .sidebar .logo {
+        width: 100%;
+    }
+}
+.wearefedora {
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size:2.3rem;
+}
+.footer-msg {
+    padding-bottom: 1rem;
+    font-size: 16px;
+    line-height: 1.8em;
+}
+.footer-msg p {
+  font-size: 2rem;
+}
+.footer-msg a {
+    font-weight: 600;
+}
+.row p {
+    font-size: 2rem;
+    line-height: 1.8em;
+}
+.footer-share p{
+    font-size: 2rem;
+}
+.socio-buttons {
+    padding: 1rem;
+    font-size: 2rem;
+    padding-bottom: 0.5em;
+}
+.socio-buttons a {
+    padding: 0.9rem;
+}
+.row .error{
+  color: red;
+  font-size: 1.4rem;
+  text-align: center;
+}
+.row .searching-text{
+  text-align: center;
+  font-size:1.4rem;
+}
+.search {
+    background-color: white;
+    padding: 0.5rem 1em;
+    color: var(--secondary-color);
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 2rem;
+    border: 2px solid var(--secondary-color);
+  }
+#div_id_fasid .controls {
+    display: inline-flex;
+}
+.alert-danger {
+    font-size:1.4rem;
+    text-align: center;
+}
+.alert-danger ul {
+    list-style: none;
+}
+.fedmenu-content {
+    position: absolute !important;
+}
+.total_happiness_sent{
+    text-align: center;
+    font-size: 3rem;
+    padding: 2rem;
+    font-family: 'Montserrat';
+}
+#id_q {
+    height: 3.2rem;
+    padding: 0 0.8rem;
+    border-radius: 2rem;
+}

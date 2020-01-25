@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<style>
+  .bottom-two {
+     margin-bottom: 1cm;
+  }
+  .bottom-one {
+    margin-bottom: 0.25cm;
+  }
+  .bottom-half {
+    margin-bottom: 0.1cm;
+  }
+</style>
+<style>
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.bg-image {
+  /* Full height */
+  height: 50%; 
+  
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Images used */
+.img1 { background-image: url("/static/wallpaper.png"); }
+.img2 { background-image: url("/static/mountain.jpg"); }
+.img3 { background-image: url("/static/fedora.png"); }
+.img4 { background-image: url("/static/red.jpg"); }
+
+.bg {
+  /* The image used */
+  background-image: url("/static/wallpaper.png");
+
+  /* Full height */
+  height: 100%; 
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.bg-text {
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+  color: white;
+  font-weight: bold;
+  font-size: 60px;
+  border: 10px solid #f1f1f1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /*z-index: 2;*/
+
+  width: 800px;
+  padding: 20px;
+  text-align: center;
+}
+.bg-footer {
+    background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+  color: white;
+  font-weight: bold;
+  font-size: 60px;
+  border: 10px solid #f1f1f1;
+  /*position: absolute;*/
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /*z-index: 2;*/
+
+  width: 800px;
+  padding: 20px;
+  text-align: center;
+}
+.tab { 
+       /*display:inline-block; */
+       margin-left: 150px; 
+}
+.reverse {
+  margin-left: 50px;
+  margin-right: 50px;
+}
+.rev {
+  margin-right: 20px;
+}
+</style>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body bgcolor="#E6E6FA">
+<div class="bg">
+<div class="bg-text">Google News API</div>
+</div>
+<p class="bottom-one"></p>
+<div class="w3-container">
+  <table class="w3-table w3-bordered w3-striped">
+    <tr class="w3-teal">
+      <th><span class="tab">Linux</span></th>
+      <th><span class="reverse">Open-Source</span></th>
+      <th><span class="rev">Android</span></th>
+    </tr>
+  </table>
+  <p class="bottom-one"></p>
+</div>
+  <div class="w3-container text-center">
+    <div class="row">
+      <div class="col-sm-4 nopadding">
+        <ul>
+            {% for i in linux %}
+            <div class="w3-card-4" style="width:100%;">
+              <header class="w3-container w3-red">
+                <p class="bottom-one"></p>
+                <a href="{{ linux[loop.index0]['url'] }}">
+                  {{ linux[loop.index0]['title'] }}</a>
+                  <p class="bottom-one"></p>
+              </header>
+              <p class="bottom-one"></p>
+            <div class="w3-container">
+              <p class="bottom-half"></p>
+              <p>{{ linux[loop.index0]['description'] }}</p>
+              
+            </div>
+
+            </div>
+            <p class="bottom-two"></p>
+            {% endfor %}
+        </ul>
+      </div>
+      <div class="col-sm-4 nopadding">
+        <ul>
+            {% for i in os %}
+            <div class="w3-card-4" style="width:100%;">
+              <header class="w3-container w3-purple">
+                <p class="bottom-one"></p>
+                <a href="{{ os[loop.index0]['url'] }}">
+                  {{ os[loop.index0]['title'] }}</a>
+                  <p class="bottom-one"></p>
+              </header>
+              <p class="bottom-one"></p>
+            <div class="w3-container">
+              <p class="bottom-half"></p>
+              <p>{{ os[loop.index0]['description'] }}</p>
+              
+            </div>
+
+            </div>
+            <p class="bottom-two"></p>
+            {% endfor %}
+        </ul>
+      </div>
+      <div class="col-sm-4 nopadding">
+        <ul>
+            {% for i in android %}
+            <div class="w3-card-4" style="width:100%;">
+              <header class="w3-container w3-deep-purple">
+                <p class="bottom-one"></p>
+                <a href="{{ android[loop.index0]['url'] }}">
+                  {{ android[loop.index0]['title'] }}</a>
+                  <p class="bottom-one"></p>
+              </header>
+              <p class="bottom-one"></p>
+            <div class="w3-container">
+              <p class="bottom-half"></p>
+              <p>{{ android[loop.index0]['description'] }}</p>
+              
+            </div>
+
+            </div>
+            <p class="bottom-two"></p>
+            {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</body>
+<div class="w3-container">
+  <table class="w3-table w3-bordered w3-striped">
+    <tr class="w3-black">
+      <th><center>Made with &hearts; by paraxor.</center></th>
+    </tr>
+  </table>
+  <p class="bottom-one"></p>
+</div>
+<p class="bottom-two"></p>
+</html>

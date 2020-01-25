@@ -1,0 +1,40 @@
+version: "3"
+services:
+  web:
+    build: .
+    restart: always
+    command: bash -c "python manage.py migrate --noinput && python manage.py rebuild_index --noinput && python manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - ./templates:/app/templates:z
+      - ./assets:/app/assets:z
+      - ./happinesspackets:/app/happinesspackets:z
+    ports:
+      - "8000:8000"
+    links:
+      - db
+      - redis
+      - rabbitmq
+  rabbitmq:
+    image: rabbitmq:alpine
+    ports:
+      - "5672:5672"
+    environment:
+      RABBITMQ_DEFAULT_PASS: pass
+      RABBITMQ_DEFAULT_USER: user
+      RABBITMQ_DEFAULT_VHOST: vhost
+  redis:
+    image: redis:alpine
+    ports:
+      - "6379:6379"
+  celery:
+    build: .
+    command: celery worker -A happinesspackets -l info
+    links:
+      - db
+      - redis
+    # ports:
+    #   - "587:587"
+  db:
+    image: postgres:10-alpine
+    environment:
+      POSTGRES_PASSWORD: example

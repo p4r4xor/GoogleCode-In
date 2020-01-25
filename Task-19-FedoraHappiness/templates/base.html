@@ -1,0 +1,130 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans" rel="stylesheet">
+    <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/all.css' %}" rel="stylesheet">
+    <link href="{% static 'css/datepicker.css' %}" rel="stylesheet">
+    <link href="{% static 'css/custom.css' %}" rel="stylesheet">
+    <link href="{% static 'images/favicon.ico' %}" rel="icon" type="image/x-icon">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <!-- <script src="http://code.jquery.com/jquery-latest.min.js"></script> -->
+    <script src="{% static 'js/vendor/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'js/fas_details.js' %}" type="text/javascript"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}" async defer></script>
+
+    <!--[if lt IE 8]>
+        <link href="{% static 'css/bootstrap-ie7.css' %}" rel="stylesheet">
+    <![endif]-->
+    {% block extra_head %}{% endblock %}
+</head>
+
+<body>
+    {% include "facebook.html" %}
+    <aside>
+        <div class="sidebar">
+            {% url 'messaging:start' as url %}
+            <a href="{{ url }}"><img src="{% static 'images/logo.png' %}" alt="Open-Source Happiness Packets" class="logo"/></a>
+            <ul class="nav nav-stacked">
+                {% if user.is_authenticated %}
+
+                <li class="dropdown">
+                    <h3 class="username dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {{ user.username }}
+                        <img class="arrow-expanding" src="/static/images/arrow-white.png" alt="side menu expanding icon">
+                    </h3>
+                    <ul class="dropdown-menu">
+                        
+                        {% if user.is_superuser %}
+                        {% url 'admin:index' as url %}
+                            <li><a class="dropdown-item" href="{{ url }}">Admin Portal</a></li>
+                        {% endif %}
+                            {% url 'messaging:received_messages' as url %}
+                            <li><a class="dropdown-item" href="{{ url }}">My Received Packets</a></li>
+                            {% url 'messaging:sent_messages' as url %}
+                            <li><a class="dropdown-item" href="{{ url }}">My Sent Packets</a></li>
+                        
+                        <form id="logout" action="{% url 'oidc_logout' %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-logout">
+                                <span class="glyphicon glyphicon-log-out"></span>
+                                <span>&nbsp;Logout</span>
+                            </button>
+                        </form>
+                    </ul>
+                  </li>
+                {% else %}
+                    <form id="login" action="{% url 'oidc_authentication_init' %}" method="get">
+                        <button type="submit" class="btn btn-login">
+                        <span class="glyphicon glyphicon-log-in"></span>
+                        <span>&nbsp;Login</span>
+                        </button>
+                    </form>
+                {% endif %}
+                {% url 'messaging:start' as url %}
+                <li role="presentation" {% ifequal request.path url %}class="active"{% endifequal %}><a href="{{ url }}">Home</a></li>
+                {% url 'messaging:send' as url %}
+                <li role="presentation" {% if url in request.path %}class="active"{% endif %}><a href="{{ url }}">Send Happiness</a></li>
+                {% url 'messaging:archive' as url %}
+                <li role="presentation" {% ifequal request.path url %}class="active"{% endifequal %}><a href="{{ url }}">Happiness Archive</a></li>
+                {% url 'messaging:inspiration' as url %}
+                <li role="presentation" {% ifequal request.path url %}class="active"{% endifequal %}><a href="{{ url }}">Get inspired</a></li>
+                {% url 'messaging:faq' as url %}
+                <li role="presentation" {% ifequal request.path url %}class="active"{% endifequal %}><a href="{{ url }}">FAQ</a></li>
+              </ul>
+        </div>
+    </aside>
+    <main>
+        <div class="container">
+            <div class="row content">
+                <div class="col-md-10">
+                    {% for django_message in messages %}
+                        <br>
+                        <div class="alert {% if django_message.tags %} alert-{{ django_message.tags }}{% endif %}">
+                            {{ django_message }}
+                        </div>
+                    {% endfor %}
+                    {% block content %}{% endblock %}
+                </div>
+            </div>
+        </div>
+            <footer class="footer">
+              <small>
+                  <hr>
+                  {% block footer %}
+                  {% include "follow.html" %}
+                  <div class="footer-msg" style="padding-top: 1rem;">
+                    {% endblock %}
+                    Fedora Happiness Packets is a fork of <a href="https://github.com/mxsasha/happinesspackets/">Happiness Packets</a> and part of GSoC 2018.
+                    <br>
+                    Need help? Report an issue <a href="https://pagure.io/coc">here</a>.
+                    <img class="emoji" src="{% static 'images/emoji/loveletter.png' %}" alt="💌" title="Love letter" aria-label="Emoji: Love letter" style="vertical-align: text-bottom">
+                    <br>
+                    Got feedback? File an issue <a href="https://pagure.io/fedora-commops/fedora-happiness-packets/new_issue">here</a>
+                  </div>
+                  <div class="socio-buttons">
+                  <a href="https://www.facebook.com/TheFedoraProject"><i class="fab fa-facebook-f fa-lg"></i></a>
+                  <a href="https://twitter.com/fedora"><i class="fab fa-twitter fa-lg"></i></a>
+                  <a href="https://www.instagram.com/thefedoraproject/"><i class="fab fa-instagram fa-lg"></i></a>
+                  <a href="https://www.reddit.com/r/Fedora/"><i class="fab fa-reddit fa-lg"></i></a>
+                  <a href="https://telegram.me/fedoranews"><i class="fab fa-telegram fa-lg"></i></a>
+              
+                </div>
+              </small>
+            </footer>
+            <script src="https://apps.fedoraproject.org/fedmenu/js/fedora-libravatar.js"></script>
+            <script src="https://apps.fedoraproject.org/fedmenu/js/fedmenu.js"></script>
+            <script>
+              fedmenu({
+                  'url': 'https://apps.fedoraproject.org/js/data.js',
+                  'mimeType': 'application/javascript',
+                  'position': 'bottom-right'
+              });
+            </script>
+        </main>
+    </body>
+</html>

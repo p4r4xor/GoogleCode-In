@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Flask</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<style type="text/css">
+	.caption {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  height: 100%
+  bottom: 100;
+  text-align: center;
+  color: #000;
+}
+.caption span.border {
+  background-color: #111;
+  color: #fff;
+  padding: 18px;
+  font-size: 25px;
+  font-family: Arial, Helvetica, sans-serif;
+  letter-spacing: 3px;
+}
+
+</style>
+<body>
+<!-- partial:index.partial.html -->
+<!-- <div class="bg"> -->
+<canvas id="canvas"></canvas>
+<div class="caption">
+  <span class="border" class="sansserif">File Uploader Webapp</span>
+</div>
+<!-- </div> -->
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+<a class="dribbble" href="/index" target="_blank"><img src="https://cdn.dribbble.com/assets/dribbble-ball-mark-2bd45f09c2fb58dbbfb44766d5d1d07c5a12972d602ef8b32204d28fa3dda554.svg" alt=""></a>
+<!-- partial -->
+
+
+</body>
+
+
+</html>

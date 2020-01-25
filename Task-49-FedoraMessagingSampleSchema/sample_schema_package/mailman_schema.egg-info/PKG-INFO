@@ -1,0 +1,25 @@
+Metadata-Version: 1.2
+Name: mailman-schema
+Version: 1.0.0
+Summary: A sample schema package for messages sent by mailman
+Home-page: https://github.com/fedora-infra/fedora-messaging/
+Maintainer: Fedora Infrastructure Team
+Maintainer-email: infrastructure@lists.fedoraproject.org
+License: GPLv2+
+Description: A sample schema package.
+        
+        See https://fedora-messaging.readthedocs.io/en/latest/messages.html for
+        detailed documentation on packaging your schema.
+        
+Keywords: fedora
+Platform: Fedora
+Platform: GNU/Linux
+Classifier: License :: OSI Approved :: GNU General Public License v2 or later (GPLv2+)
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7

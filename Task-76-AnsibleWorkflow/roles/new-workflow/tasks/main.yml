@@ -1,0 +1,59 @@
+---
+# tasks file for new-workflow
+# taken from https://askubuntu.com/questions/719955/list-of-safe-to-remove-applications
+- name: Removing atleast 1 by default software that no one use (like boxes, snapshots, etc)
+  dnf:
+    name: "{{ item }}"
+    state: absent
+  with_items:
+    - aisleriot
+    - gnome-mines
+    - gnome-sudoku
+
+#https://github.com/fabaff/fedora-ansible/blob/master/tasks/rpmfusion.yml
+- name: Enable a repo like rpmfusion (or any one of your choice)
+  dnf:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ fedora_current }}.noarch.rpm
+    - http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ fedora_current }}.noarch.rpm
+
+- name: Installing atleast 5 software that you definitely use
+  dnf:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - httpd
+    - mariadb-server
+    - vim
+    - git
+    - python3-pip
+    - binwalk
+
+- name: Run update command to get your OS in the latest state
+  dnf:
+    name: "*"
+    state: latest
+
+- name: Importing ssh keys to their location
+  copy: remote_src=True src=./publickey dest=~/.ssh/id_rsa
+
+#https://www.reddit.com/r/ansible/comments/81vwlh/ansiblevim_vim_vundle_vimrc_with_ansible/
+- name: Vundle clone
+  git:
+    repo: https://github.com/VundleVim/Vundle.vim.git
+    dest: ~/.vim/bundle/Vundle.vim
+
+- name: Vundle install
+  command: "vim +PluginInstall +qall"
+
+#https://gist.github.com/simonista/8703722
+- name: Vim config
+  copy: remote_src=True src=./.vimrc dest=~/.vimrc
+
+- name: Installing http(or any one of your choice) and enable the service
+  service:
+    name: httpd
+    enabled: yes
+

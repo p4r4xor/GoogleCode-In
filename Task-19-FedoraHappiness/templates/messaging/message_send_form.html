@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block extra_head %}<title>Send a Happiness Packet</title>{% endblock %}
+
+{% load crispy_forms_tags %}
+{% load static %}
+<script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
+<script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
+
+{% block content %}
+
+<div class="page-header">
+    <h2>Send a Happiness Packet to someone!</h2>
+    <br>
+</div>
+{% crispy form %}
+
+<button id="search_fasid" class="search">Search</button>
+
+<script> 
+$("#submit-id-submit").click(function() {
+                $(".cke_wysiwyg_frame").contents().find("img")
+                    .css({"max-width": "100%", "height": "auto"});
+});
+</script>
+{% endblock content %}

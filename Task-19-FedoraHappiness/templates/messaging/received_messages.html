@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block extra_head %}<title>Received Happiness Packets</title>{% endblock %}
+
+{% block content %}
+
+    <div class="page-header">
+        <h2>My Received Happiness Packets</h2>
+    </div>
+
+    {% if message_list %}
+    <p>
+    Here is a list of all the Happiness Packets you have received!
+    </p>
+    {% for message in message_list %}
+    <h4>
+        {% if message.sender_named %}
+            From {{ message.sender_name }}
+        {% else %}
+            From Anonymous
+        {% endif %}
+    </h4>
+    <blockquote>
+      {{ message.message|safe }}
+    </blockquote>
+    <p><a href="{% url 'messaging:recipient_message_update' identifier=message.identifier token=message.recipient_email_token %}">Update Permissions</a></p>
+    {% endfor %}
+
+    {% block pagination %}
+        {% if is_paginated %}
+        {% include 'messaging/_pagination.html' %}
+        {% endif %}
+    {% endblock %}
+    {% else %}
+    <p>Looks like you haven't received any Happiness Packets yet. Why not start the chain of appreciation?
+      <a href="{% url 'messaging:send' %}">Send someone a Happiness Packet now!</a></p>
+    {% endif %}
+{% endblock %}

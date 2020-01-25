@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Flask-APOD</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<style>
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.bg-image {
+  /* Full height */
+  height: 50%; 
+  
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.bgimg-2 {
+  background-image: url("/static/nice.jpg");
+  min-height: 400px;
+}
+
+/* Images used */
+
+.bg {
+  /* The image used */
+  background-image: url("/static/minimalist.jpg");
+
+  /* Full height */
+  height: 100%; 
+
+  /* Center and scale the image nicely */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.bg-2 {
+  /* The image used */
+  background-image: url("/static/nice.jpg");
+
+  /* Full height */
+  height: 50%; 
+
+  /* Center and scale the image nicely */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.bg-3 {
+  /* The image used */
+  background-image: url("/static/night.jpg");
+
+  /* Full height */
+  height: 50%; 
+  position: relative;
+  opacity: 0.65;
+
+  /* Center and scale the image nicely */
+  /*background-attachment: fixed;*/
+  background-position: center;
+  /*background-repeat: no-repeat;*/
+  background-size: cover;
+}
+.caption {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  text-align: center;
+  color: #000;
+}
+
+.bg-text {
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+  color: white;
+  font-weight: bold;
+  font-size: 40px;
+  border: 10px solid #f1f1f1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /*z-index: 2;*/
+
+  width: 800px;
+  padding: 20px;
+  text-align: center;
+}
+
+.bg-footer {
+    background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+  color: white;
+  font-weight: bold;
+  font-size: 60px;
+  border: 10px solid #f1f1f1;
+  /*position: absolute;*/
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /*z-index: 2;*/
+
+  width: 1000px;
+  padding: 20px;
+  text-align: center;
+}
+.tab { 
+       /*display:inline-block; */
+       margin-left: 150px; 
+}
+.reverse {
+  margin-left: 50px;
+  margin-right: 50px;
+}
+.rev {
+  margin-right: 20px;
+}
+.caption span.border {
+  background-color: #111;
+  color: #fff;
+  padding: 18px;
+  font-size: 25px;
+  letter-spacing: 3px;
+}
+.center {
+  margin: auto;
+  width: 10%;
+  
+}
+</style>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body bgcolor="#E6E6FA">
+<div class="bg">
+<div class="caption">
+  <span class="border">Welcome!</span>
+</div>
+</div>
+<div style="color: #777;background-color:white;text-align:center;padding:50px 80px;text-align: justify;">
+  <h3 style="text-align:center;">What's this?</h3>
+  <p>Before moving onto what this site does, let me introduce myself. I'm paraxor and the following website is a product of a Google Code-In task. I kinda like doing front-end work, and hence this website. This website is a file hosting service, which is pretty self explanatory. You can view the files on the current page on clicking the file title. </p>
+</div>
+<div class="bg-2"></div>
+<div style="color: #777;background-color:white;text-align:center;padding:50px 80px;text-align: justify;">
+<h3 style="text-align: center;">Flask File Hosting Service</h3>
+
+
+<form method="post" action="/upload" enctype="multipart/form-data">
+    <p style="text-align: center;">Title name: 
+		<input name="text">
+	</p>
+	<div class="center">
+	<p  >
+		<input type="file" autocomplete="off" name="file" required>
+	</p>
+</div>
+    <p style="text-align: center;">
+		<input type="submit" value="Submit">
+	</p>
+<h3 style="text-align: center;">The following are the files hosted</h3>
+
+<p style="text-align: center;">
+	{% with messages = files %}
+		<ul class=flashes style="text-align: center;">
+		{% for message in messages %}
+			<li><a href="{{ message }}">{{ message }}</a></li>
+		{% endfor %}
+		</ul>
+	{% endwith %}
+</p>
+</div>
+<div class="bg-3">
+<div class="caption">
+  <span class="border" style="background-color:transparent;font-size:30px;color: #f7f7f7;">Thank you!</span>
+  </div>
+</div>
+</body>
+</html>
+
+<!--  -->
+<!-- <!DOCTYPE html> -->
+<!-- <html> -->
+<!-- <head> -->
+<!-- <title>Python Flask File Upload Example</title> -->
+<!-- </head> -->
+<!-- <body> -->
+<!-- <p> -->
+	<!-- {% with messages = files %} -->
+		<!-- <ul class=flashes> -->
+		<!-- {% for message in messages %} -->
+			<!-- <li><a href="{{ message }}">{{ message }}</a></li> -->
+		<!-- {% endfor %} -->
+		<!-- </ul> -->
+	<!-- {% endwith %} -->
+<!-- <//p> -->
+<!-- // -->
+<!-- /<form method="post" action="/upload" enctype="multipart/form-data"> -->
+    <!-- <dl> -->
+		<!-- <p>/ -->
+			<!-- <inpu/t name="text"> -->
+			<!-- <input type="file" name="file" autocomplete="off" required> -->
+		<!-- </p> -->
+    <!-- </dl> -->
+    <!-- <p> -->
+		<!-- <input type="submit" value="Submit"> -->
+	<!-- </p> -->
+
+<!-- </form> -->
+<!-- </body> -->
+<!-- </html> -->

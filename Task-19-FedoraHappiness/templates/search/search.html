@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block extra_head %}<title>Search</title>{% endblock %}
+
+{% block content %}
+<h2>Search</h2>
+<form method="get"  class="form-inline">
+    {% for field in form %}
+    <div class="form-group" style="font-size: 1.7em;">
+        {{ field.errors }}
+        {{ field.label_tag }} {{ field }}
+    </div>
+    {% endfor %}
+    <input type="submit" value="Search" class="search">
+</form>
+{% if query %}
+<h3>Results</h3>
+
+{% for result in object_list %}
+<h4>
+    {% if result.object.sender_approved_public_named and result.object.recipient_approved_public_named %}
+    From {{ result.object.sender_name  }} to {{ result.object.recipient_name  }}
+    {% else %}
+    Anonymous message
+    {% endif %}
+</h4>
+
+<blockquote>
+    {{ result.object.message|safe }}
+</blockquote>
+
+{% empty %}
+<p>No messages found. Why not change that?</p>
+<p class="text-center">
+    <a class="btn btn-primary btn-lg btn-responsive" href="{% url 'messaging:send' %}" role="button">Send some happiness now! <img class="emoji" src="static/images/emoji/loveletter.png" alt="💌" title="Love letter" aria-label="Emoji: Love letter"></a>
+</p>
+{% endfor %}
+
+{% if page.has_previous or page.has_next %}
+<div>
+    {% if page.has_previous %}<a href="?q={{ query }}&amp;page={{ page.previous_page_number }}">{% endif %}&laquo; Previous{% if page.has_previous %}</a>{% endif %}
+    |
+    {% if page.has_next %}<a href="?q={{ query }}&amp;page={{ page.next_page_number }}">{% endif %}Next &raquo;{% if page.has_next %}</a>{% endif %}
+</div>
+{% endif %}
+{% else %}
+<p>
+    Search for messages here!
+</p>
+{% endif %}
+{% endblock %}

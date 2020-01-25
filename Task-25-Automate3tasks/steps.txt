@@ -1,0 +1,32 @@
+To run the code, "python3.7 Automate3tasks.py"
+
+WARNING: (current findings for now) 
+
+0)If your cronjob involves GUI apps, we need to tell which DISPlAY to use. "export DISPLAY=:0" works fine.
+1)Please have your timezone set on your linux correctly. Wasted a lot of time on this.
+2)Make sure there is a newline after you edit a crontab file.
+3)If cron daemon doesn't run, please follow the sub steps.
+
+** pgrep cron
+-- If you see no number, then cron is not running. sudo /etc/init.d/cron start can be used to start cron.
+
+** sudo service cron restart / sudo systemctl start cron
+
+4)Make the script executable beforehand.
+
+Steps:
+
+I've followed some of the steps in the URL: https://stackoverflow.com/questions/24518522/run-python-script-at-startup-in-ubuntu
+
+1)My timezone was wrong, corrected with "sudo service cron restart"
+
+2)sudo cp -i ~/Downloads/GCI-fedora/Automate3tasks/code.py /bin
+
+3)sudo crontab -e
+
+4)* * * * * export DISPLAY=:0 && @reboot python /bin/test_code.py &
+
+5)And you're done :)
+
+
+

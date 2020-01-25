@@ -1,0 +1,7 @@
+---
+- name: Ansible services
+  hosts: localhost
+  #user: root
+  tasks:
+    - import_role:
+        name: service

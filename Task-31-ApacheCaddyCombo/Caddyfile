@@ -1,0 +1,6 @@
+localhost:80 {
+	gzip
+	proxy / 127.0.0.1:3005 {
+	transparent
+  }
+}

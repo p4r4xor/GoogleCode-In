@@ -1,0 +1,14 @@
+---
+- name: Install Tensorflow
+  hosts: localhost
+  become: true
+  become_method: sudo
+  become_user: root
+  tasks:
+    - name: Direct Install
+      pip:
+        name: ['pip','tensorflow','numpy']
+        #executable: pip3
+        state: latest
+        #virtualenv: /venv
+        #virtualenv_site_packages: yes

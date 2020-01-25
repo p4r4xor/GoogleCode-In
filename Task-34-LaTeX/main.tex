@@ -1,0 +1,59 @@
+\documentclass{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{lettrine}
+\usepackage{wrapfig}
+\usepackage{sidecap}
+\usepackage{hyperref}
+\usepackage{pgf}
+\usepackage{pgfpages}
+\definecolor{amaranthpurple}{rgb}{0.67,0.15,0.31}
+
+\pgfpagesdeclarelayout{boxed}
+{
+  \edef\pgfpageoptionborder{0pt}
+}
+{
+  \pgfpagesphysicalpageoptions
+  {
+    logical pages=1,
+  }
+  \pgfpageslogicalpageoptions{1}
+  {
+    border code=\pgfsetlinewidth{2pt}\pgfstroke,
+    border shrink=\pgfpageoptionborder,
+    resized width=.95\pgfphysicalwidth,
+    resized height=.95\pgfphysicalheight,
+    center=\pgfpoint{.5\pgfphysicalwidth}{.5\pgfphysicalheight}
+  }%
+}
+
+\pgfpagesuselayout{boxed}
+\hypersetup{
+    colorlinks=true,
+    urlcolor=amaranthpurple,
+}
+
+\pagestyle{fancy}
+\lhead{Fedora Project}
+\rhead{paraxor}
+\lfoot{Google Code In}
+\rfoot{LaTeX task}
+
+\title{Me and my journey with GCI}
+\author{paraxor}
+
+\begin{document}
+\maketitle
+\thispagestyle{fancy}
+\lettrine{H}{}ello mentors! I'm paraxor and I'll be introducing myself in the next two paragraphs. I haven't got a lot to say, but being a part of the Fedora Project has been pretty well for now. This is my first attempt for GCI and probably might be the last too (If you know what I mean XD). I've started coding in my 10th grade and I'm in 11th currently. I'm a VERY fast learner and I couldn't have done this without my brother's support. 
+
+\medbreak
+\begin{wrapfigure}{l}{0.27\textwidth}
+  \begin{center}
+    \includegraphics[width=0.25\textwidth]{winner.jpg}
+  \end{center}
+\end{wrapfigure}
+I don't have a lot to say, but I'm very interested in watching anime and reading random stuff on Quora. I love math and me and my brother could've represented India at the IMO (were almost there), but fate split us in pursuing our interests. And yes, I'll be winning the GCI no matter what happens to me :). I can confirm its not an obsession but yet, I need to be the first guy from my area/city/country to win the GCI XD. I play some CTFs in my free time, some WebDev and Competitive Programming in the other. Please ping me if we could share our anime/math interests XD. You're free to drop a mail at \href{mailto:pwn4p4r4xor@gmail.com}{this.}
+\end{document}

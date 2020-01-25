@@ -1,0 +1,14 @@
+---
+# tasks file for service
+- name: Stop service
+  service:
+    name: apache2
+    state: stopped
+- name: Start service
+  service:
+    name: apache2
+    state: started
+- name: Restart service
+  service:
+    name: apache2
+    state: reloaded

@@ -1,0 +1,11 @@
+### Taken from https://docs.ansible.com/ansible/latest/dev_guide/developing_modules_general.html
+---
+- name: HTTP status codes
+  hosts: localhost
+  tasks:
+  - name: Module access
+    httpresponse:
+    register: testout
+  - name: dump test output
+    debug:
+     msg: '{{ testout }}'

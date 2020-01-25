@@ -1,0 +1,10 @@
+---
+- name: Adding a new user
+  hosts: localhost
+  user: root
+  vars:
+    password: $1$fedora$yuAScqSr3Sy2O1F4ulb1s.
+
+  tasks:
+    - name: Creating one
+      user: name=fedora password={{password}}

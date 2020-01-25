@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+    <div class="page-header">
+        <h2>Change permission settings on the following Happiness Packet:</h2>
+    </div>
+    <h4>
+        Sent to {{ message.recipient_name }}
+    </h4>
+    <blockquote>
+        {{ message.message|safe }}
+    </blockquote>
+    
+    {% crispy form %}
+
+{% endblock content %}

@@ -1,0 +1,28 @@
+---
+# tasks file for heartbleed
+  - name: "Install packages"
+    dnf: 
+      name: openssl 
+      state: latest 
+      update_cache: yes
+
+  - name: Restart services
+    systemd: state=restarted name= {{ item }}
+    with_items:
+      - unbound
+      - monit
+      - postfix
+      - openvpn
+      - php5-fpm
+      - nginx
+      - apache2
+      - postgresql
+
+  - name: "Checking the vulnerable process..."
+    shell: >
+        if [ "$(sudo lsof -n | grep ssl | grep DEL | wc -l)" = "1" ]; then echo "Yo this shit vulnerable"; checkrestart; exit 1; fi
+    tags: check
+
+  - name: "Sed reacc"
+    debug:
+      msg: "Y U do dis. Me not vulnerable."

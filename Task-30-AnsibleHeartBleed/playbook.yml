@@ -1,0 +1,8 @@
+---
+- name: Check vulnerability
+  hosts: localhost
+  become: true
+  gather_facts: false
+  tasks:
+    - import_role:
+        name: heartbleed

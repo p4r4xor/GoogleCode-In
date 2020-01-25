@@ -1,0 +1,13 @@
+base:
+  admins: 
+  # following will populate ADMIN variable in settings/base.py 
+    - !!python/tuple ['Anna Philips', 'algogator@fedoraproject.org']
+    - !!python/tuple ['Jona Azizaj', 'jonatoni@fedoraproject.org']
+    - !!python/tuple ['Bhagyashree Uday', 'bee2502@fedoraproject.org']
+auth:
+  admins:
+  # following will be given superuser privileges
+    - jflory7
+    - jonatoni
+    - bt0dotninja
+    - anxh3l0

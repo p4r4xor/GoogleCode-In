@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="page-header">
+        <h2>Link not valid</h2>
+    </div>
+
+    {% if not_found %}
+        <div class="alert alert-danger">
+            We couldn't find this message. Make sure that the URL is complete.
+        </div>
+    {% elif not_sender %}
+        <div class="alert alert-danger">
+            The message can't be confirmed since you aren't the sender of the message.
+        </div>
+    {% elif already_confirmed %}
+        <div class="alert alert-info">
+            You already confirmed this message.
+        </div>
+    {% elif publish_returned %}
+        <div class="alert alert-info">
+            The message could not be sent because the broker rejected the message. Please try again later!
+        </div>
+    {% elif connection_exception %}
+        <div class="alert alert-info">
+            The message could not be sent because an error in connection occurred before the broker could send a publish confirmation. Please try again later. 
+        </div>
+    {% endif %}
+
+{% endblock content %}

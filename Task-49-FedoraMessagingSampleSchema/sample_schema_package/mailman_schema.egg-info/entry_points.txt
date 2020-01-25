@@ -1,0 +1,5 @@
+[fedora.messages]
+mailman.messageV1 = mailman_schema.schema:MessageV1
+mailman.messageV2 = mailman_schema.schema:MessageV2
+mailman.messageV3 = mailman_schema.schema:MessageV3
+

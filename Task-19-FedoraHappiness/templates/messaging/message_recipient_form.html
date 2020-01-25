@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+    <div class="page-header">
+        <h2>You received an Open-Source Happiness Packet!</h2>
+    </div>
+
+    <p>
+        {% if message.sender_named %}
+            You received a Happiness Packet from {{ message.sender_name }} ({{ message.sender_email }}).
+        {% else %}
+            The sender of this message asked to remain anonymous.
+        {% endif %}
+        Your Happiness Packet contains:
+        </p>
+
+    <blockquote>{{ message.message|safe }}</blockquote>
+
+    {% crispy form %}
+{% endblock content %}

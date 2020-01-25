@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>NASA Apod</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<style>
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.bg-image {
+  /* Full height */
+  height: 50%; 
+  
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.bgimg-2 {
+  background-image: url("/static/nice.jpg");
+  min-height: 400px;
+}
+.bottom-two {
+  margin-bottom: 1cm;
+}
+.bottom-one {
+  margin-bottom: 0.25cm;
+}
+.bottom-half {
+  margin-bottom: 0.05cm;
+}
+/* Images used */
+.img1 { background-image: url("/static/wallpaper.png"); }
+.img2 { background-image: url("/static/mountain.jpg"); }
+.img3 { background-image: url("/static/fedora.png"); }
+.img4 { background-image: url("/static/red.jpg"); }
+
+.bg {
+  /* The image used */
+  background-image: url("/static/stars.jpg");
+
+  /* Full height */
+  height: 100%; 
+
+  /* Center and scale the image nicely */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.bg-2 {
+  /* The image used */
+  background-image: url("/static/nice.jpg");
+
+  /* Full height */
+  height: 50%; 
+
+  /* Center and scale the image nicely */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.bg-3 {
+  /* The image used */
+  background-image: url("/static/aes.jpg");
+
+  /* Full height */
+  height: 50%; 
+  position: relative;
+  opacity: 0.65;
+
+  /* Center and scale the image nicely */
+  /*background-attachment: fixed;*/
+  background-position: center;
+  /*background-repeat: no-repeat;*/
+  background-size: cover;
+}
+.caption {
+  position: absolute;
+  left: 0;
+  top: 40%;
+  width: 100%;
+  text-align: center;
+  color: #000;
+}
+
+.bg-text {
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+  color: white;
+  font-weight: bold;
+  font-size: 40px;
+  border: 10px solid #f1f1f1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /*z-index: 2;*/
+
+  width: 800px;
+  padding: 20px;
+  text-align: center;
+}
+
+.bg-footer {
+    background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+  color: white;
+  font-weight: bold;
+  font-size: 60px;
+  border: 10px solid #f1f1f1;
+  /*position: absolute;*/
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /*z-index: 2;*/
+
+  width: 1000px;
+  padding: 20px;
+  text-align: center;
+}
+.tab { 
+       /*display:inline-block; */
+       margin-left: 150px; 
+}
+.reverse {
+  margin-left: 50px;
+  margin-right: 50px;
+}
+.rev {
+  margin-right: 20px;
+}
+.caption span.border {
+  background-color: #111;
+  color: #fff;
+  padding: 5px;
+  font-size: 25px;
+  letter-spacing: 3px;
+}
+.caption span.border-1 {
+  background-color: #111;
+  color: #fff;
+  padding: 5px;
+  font-size: 5px;
+  letter-spacing: 3px;
+}
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<body>
+
+<div class="bg">
+<div class="caption">
+  <span class="border" style="background-color:transparent;font-size:40px;color: #f7f7f7;">{{ title }}</span>
+  <p class="bottom-one"></p>
+  <span class="border" style="background-color:transparent;font-size:25px;color: #f7f7f7;">{{ tdate }}</span>
+</div>
+</div>
+
+<div style="color: #777;background-color:white;text-align:center;padding:50px 80px;text-align: justify;">
+  
+  <img src="{{ img_url }}" alt="Picture of the day" style="width:50%;">
+  <h3 style="text-align:center;">What's this?</h3>
+  <p>{{ desc }}</p>
+   <ul class="nav navbar-nav">
+            <li><a href="{{ img_download_url }}"><span class="glyphicon glyphicon-picture"></span> Download As JPG</a></li>
+            
+        </ul>
+  <ul class="nav navbar-nav navbar-right">
+            
+            <li><a href="{{ pdf_download_url }}"><span class="glyphicon glyphicon-download-alt"></span> Download as PDF</a></li>
+        </ul>
+</div>
+<div class="bg-3">
+<div class="caption">
+  <span class="border" style="background-color:transparent;font-size:30px;color: #f7f7f7;">Thank you!</span>
+  <p class="bottom-half"></p>
+  <span class="border-1" style="background-color:transparent;font-size:13px;color: #f7f7f7;">(for the second time XD)</span>
+  </div>
+</div>
+</body>
+</html>

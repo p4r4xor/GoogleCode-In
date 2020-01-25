@@ -1,0 +1,7 @@
+{"version": 2, "width": 80, "height": 36, "timestamp": 1575947948, "env": {"SHELL": "/bin/bash", "TERM": "xterm-256color"}}
+[0.018356, "o", "\u001b[0;31m┌─[\u001b[01;31mroot\u001b[01;33m@\u001b[01;96mparrot\u001b[0;31m]─[\u001b[0;32m/home/paraxor/Downloads/GCI-fedora/NetworkScanner\u001b[0;31m]\r\r\n\u001b[0;31m└──╼ \u001b[0m\u001b[01;33m#\u001b[0m"]
+[0.930538, "o", "python NetworkScanner.py  --ip 192.168.1.0/24"]
+[2.807179, "o", "\r\n"]
+[13.304977, "o", "                                        \r\n    IP\t\t|    MAC Address\r\n192.168.1.1 \t| b4:75:0e:df:4f:95\r\n192.168.1.117 \t| ac:56:2c:0d:62:92\r\n192.168.1.149 \t| c0:bd:d1:85:7e:e9\r\n\r\n\r\n"]
+[13.363601, "o", "\u001b[0;31m┌─[\u001b[01;31mroot\u001b[01;33m@\u001b[01;96mparrot\u001b[0;31m]─[\u001b[0;32m/home/paraxor/Downloads/GCI-fedora/NetworkScanner\u001b[0;31m]\r\r\n\u001b[0;31m└──╼ \u001b[0m\u001b[01;33m#\u001b[0m"]
+[15.117953, "o", "exit\r\n"]

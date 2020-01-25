@@ -1,0 +1,46 @@
+Read the following text for a brief understanding. (till the "heap exploit" part).
+
+This task is related to a remote command execution to communicate with the victim's computer.
+
+I've chosen my task to be "hacknote" from pwnable.tw.
+
+I have some experience playing CTFs and challenges like these come under the                  "binary exploitation" category.
+
+We have been given the following:
+
+nc chall.pwnable.tw 10102
+hacknote (binary)
+
+The challenge I've chosen relates with a "heap exploit".
+
+
+
+
+
+
+
+lets take a look into the decompiled binary.
+
+You can decompile the binary by using IDA or ghidra.
+
+Now for the exploit, Every note has a main chunk and a content chunk..
+
+One good thing is that the main chunk has a function pointer (printing content).
+
+Now, we may overwrite it as a system function.
+
+lets take a look into the code once again.
+
+
+
+The exploit scenario is here:
+1) Leak the libc address using chunk in unsored bin (main_arena.top is written in freed chunk)
+2) using double free, we make the status like this:
+          A's main chunk == B's content chunk
+
+3) Write system function's address at A's function pointer position using B's content.
+4) Because the parameter is the function itself, the string such as (system address) + ':bash' is overwritten.
+
+
+
+Let us now take a look at the exploit code.
