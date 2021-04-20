@@ -50,7 +50,7 @@ python-fedora==0.10.0
 email-normalize==0.2.1
 
 # Dependency for YAML file
-pyyaml==5.1
+pyyaml==5.4
 
 # WYSIWYG addition
 django-ckeditor==5.7.0
