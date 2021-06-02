@@ -28,7 +28,7 @@ pyflakes==1.0.0
 pep8==1.7.0
 
 # Misc
-urllib3==1.24.2       # Dependency for requests 
+urllib3==1.26.5       # Dependency for requests 
 python-dateutil==2.5.0
 factory-boy==2.9.2
 mozilla-django-oidc==1.2.2
