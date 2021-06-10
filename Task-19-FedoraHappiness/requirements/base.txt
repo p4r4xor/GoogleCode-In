@@ -1,5 +1,5 @@
 #django-haystack doesn't have support for django2.1 yet
-Django==2.0
+Django==2.2.24
 
 # Basic Django extensions
 django-extensions==1.6.1
