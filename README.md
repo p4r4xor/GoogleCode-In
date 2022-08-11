@@ -3,7 +3,7 @@
 ![logo](https://user-images.githubusercontent.com/49688892/73122111-704f9a80-3f9a-11ea-9c71-21b62d82ce84.jpg)
 
 ### Introduction.
-Hello everyone! I’m paraxor, a student at GEMS United Indian School (GUIS) participating from the United Arab Emirates. The year 2019 was awesome considering my participation in the Google Code-In, and the year I’ve learnt to code. The organization I’ve taken part is The Fedora Project.
+Hello everyone! I’m Harsha Reddimi (paraxor), a student at GEMS United Indian School (GUIS) participating from the United Arab Emirates. The year 2019 was awesome considering my participation in the Google Code-In, and the year I’ve learnt to code. The organization I’ve taken part is The Fedora Project.
 
 ### What's this?
 
