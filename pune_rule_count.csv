@@ -1,0 +1,9 @@
+rule_name,count
+food_cuisine_check,13525
+node_amenity_tag_check,276
+highway_underground_no_tunnel,87
+isolated_geometry,69
+highway_overground_no_bridge,49
+invalid_phone_number,29
+duplication_overlapping_of_roads,6
+email_regex_check,2
