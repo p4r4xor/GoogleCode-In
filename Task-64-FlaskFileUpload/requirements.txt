@@ -3,4 +3,4 @@ wget==3.2
 requests==2.22.0
 gunicorn==19.7.1
 fpdf==1.7.2
-Werkzeug==0.15.6
+Werkzeug==2.2.3
